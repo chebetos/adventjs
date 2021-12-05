@@ -3,6 +3,7 @@ import contarOvejas from './dia01';
 import { shout } from './utils';
 import listGifts from './dia02';
 import isValid from './dia03';
+import createXmasTree from './dia04';
 
 function dia01() {
   const ovejas = [
@@ -27,10 +28,15 @@ function dia03() {
   shout(`La lista "${letter}" es valida: ${listaValida}`);
 }
 
+function dia04() {
+  shout(createXmasTree(10));
+}
+
 function main() {
   dia01();
   dia02();
   dia03();
+  dia04();
 }
 
 main();
