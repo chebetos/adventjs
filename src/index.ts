@@ -2,6 +2,7 @@
 import contarOvejas from './dia01';
 import { shout } from './utils';
 import listGifts from './dia02';
+import isValid from './dia03';
 
 function dia01() {
   const ovejas = [
@@ -20,9 +21,16 @@ function dia02() {
   shout('La lista de regalos es: ' + JSON.stringify(regalos));
 }
 
+function dia03() {
+  const letter = 'bici coche (balón) bici coche peluche';
+  const listaValida = isValid(letter);
+  shout(`La lista "${letter}" es valida: ${listaValida}`);
+}
+
 function main() {
   dia01();
   dia02();
+  dia03();
 }
 
 main();
