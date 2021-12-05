@@ -4,6 +4,7 @@ import { shout } from './utils';
 import listGifts from './dia02';
 import isValid from './dia03';
 import createXmasTree from './dia04';
+import daysToXmas from './dia05';
 
 function dia01() {
   const ovejas = [
@@ -32,11 +33,17 @@ function dia04() {
   shout(createXmasTree(10));
 }
 
+function dia05() {
+  const days = daysToXmas(new Date());
+  shout(`Faltan ${days} dias para navidad`);
+}
+
 function main() {
   dia01();
   dia02();
   dia03();
   dia04();
+  dia05();
 }
 
 main();
