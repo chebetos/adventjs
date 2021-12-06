@@ -1,10 +1,17 @@
 import isValid from '../dia03';
 
-test('isValid', () => {
-  expect(isValid('bici coche (balón) bici coche peluche')).toBeTruthy();
-  expect(isValid('(muñeca) consola bici')).toBeTruthy();
-  expect(isValid('bici coche (balón bici coche')).toBeFalsy();
-  expect(isValid('peluche (bici [coche) bici coche balón')).toBeFalsy();
-  expect(isValid('(peluche {) bici')).toBeFalsy();
-  expect(isValid('() bici')).toBeFalsy();
+const data: Array<[string, boolean]> = [
+  ['bici coche (balón) bici coche peluche', true],
+  ['(muñeca) consola bici', true],
+  ['(muñeca) {consola bici}', true],
+  ['bici coche (balón bici coche', false],
+  ['peluche (bici [coche) bici coche balón', false],
+  ['(peluche {) bici', false],
+  ['(peluche) {)} bici', false],
+  ['(peluche) {bici}[coche(balón) bici', false],
+  ['() bici', false],
+];
+
+test.each(data)("isValid('%s')", (text, expected) => {
+  expect(isValid(text)).toBe(expected);
 });
